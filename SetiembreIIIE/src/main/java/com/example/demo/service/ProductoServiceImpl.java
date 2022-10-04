@@ -16,14 +16,14 @@ public class ProductoServiceImpl implements ProductoService {
 	@Override
 	public void guardar(Producto producto) {
 		// TODO Auto-generated method stub
-		rerpositorio.guardar(producto);
+		rerpositorio.save(producto);
 
 	}
 
 	@Override
 	public void actualizar(Producto producto) {
 		// TODO Auto-generated method stub
-		rerpositorio.actualizar(producto);
+		rerpositorio.saveAndFlush(producto);
 
 		
 
@@ -32,20 +32,20 @@ public class ProductoServiceImpl implements ProductoService {
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
-		rerpositorio.eliminar(id);	
+		rerpositorio.deleteById(id);	
 
 	}
 
 	@Override
 	public List<Producto> listar() {
 		// TODO Auto-generated method stub
-		return rerpositorio.listar();
+		return rerpositorio.findAll();
 	}
 
 	@Override
 	public Producto obtener(Integer id) {
 		// TODO Auto-generated method stub
-		return rerpositorio.obtener(id);
+		return rerpositorio.findById(id),orElse(new Producto());
 	}
 
 }
